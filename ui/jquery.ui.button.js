@@ -72,7 +72,11 @@ $.widget( "ui.button", {
 			focusClass = "ui-state-focus";
 
 		if ( options.label === null ) {
-			options.label = this.buttonElement.html();
+			if(this.buttonElement.html()!="") {
+				options.label = this.buttonElement.html();
+			} else {
+				if (this.buttonElement.attr("value")!=null) options.label = this.buttonElement.attr("value");
+			}
 		}
 
 		if ( this.element.is( ":disabled" ) ) {
